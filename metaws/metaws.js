@@ -44,7 +44,7 @@ oracledb.getConnection(dbconfig,function(err, connection) {
 
 http.createServer(app).listen(80);
 
-var metadetalhes  = require('./modulos/metadetalhes.js')(oracle);
+var metadetalhes  = require('./modulos/metadetalhes.js')(oracledb);
 
 // set up ejs for templating
 app.set('view engine','ejs');
