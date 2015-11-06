@@ -1,4 +1,4 @@
-//routesir.js
+//routerdashboard.js
 module.exports = function(app, metadetalhes, oracledb) 
 {
     app.set('views', '../landingpage');
@@ -11,8 +11,9 @@ module.exports = function(app, metadetalhes, oracledb)
 // Lading Page =========================
 // =====================================
 // show the login form  
-    app.get('/', function(req, res) {
-        res.render('index.html');
+app.get('/', function(req, res) {
+    res.render('index.html');
+});
     
 app.get('/dashboard', function(req, res) {
     res.render('dashboard.html');
