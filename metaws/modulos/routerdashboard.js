@@ -18,15 +18,6 @@ app.get('/dashboard', function(req, res) {
     res.render('dashboard.html');
 });
 
-// =====================================
-// Layers SECTION ======================
-// =====================================    
-app.get('/relationshiptables', function(req, res) {    
-    res.render('relationshiptables.html', {
-      user : req.user // get the user out of session and pass to template
-    });
-});
-
 //app.get('/dashboard/charts/v00.00.01/employee/layer01/', function(req, res) {
 //      metadetalhes.listar(req.body, function(success){
 //        res.send(success);
