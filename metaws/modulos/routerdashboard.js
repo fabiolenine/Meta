@@ -1,7 +1,7 @@
 //routesir.js
 module.exports = function(app, metadetalhes, oracledb) 
 {
-    app.set('views', '../dashboard');
+    app.set('views', '../landingpage');
     
 // =====================================
 // HOME PAGE (with login links) ========
@@ -12,7 +12,7 @@ module.exports = function(app, metadetalhes, oracledb)
 // =====================================
 // show the login form  
     app.get('/', function(req, res) {
-        res.render('../landingpage/index.html', {   //isAuthenticated: false,
+        res.render('index.html', {   //isAuthenticated: false,
                                     message: req.flash('loginMessage') }); // load the index.ejs file
     });
     
