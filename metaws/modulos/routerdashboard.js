@@ -12,7 +12,7 @@ module.exports = function(app, metadetalhes, oracledb)
 // =====================================
 // show the login form  
 app.get('/', function(req, res) {
-    res.render('index.html');
+    res.render('index.ejs');
 });
     
 app.get('/dashboard', function(req, res) {
