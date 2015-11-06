@@ -12,14 +12,10 @@ module.exports = function(app, metadetalhes, oracledb)
 // =====================================
 // show the login form  
     app.get('/', function(req, res) {
-        res.render('index.html', {   //isAuthenticated: false,
-                                    message: req.flash('loginMessage') }); // load the index.ejs file
-    });
+        res.render('index.html');
     
 app.get('/dashboard', function(req, res) {
-    res.render('dashboard.html',{
-        user :  req.user          
-    });
+    res.render('dashboard.html');
 });
 
 // =====================================
