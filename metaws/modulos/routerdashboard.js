@@ -1,7 +1,7 @@
 //routerdashboard.js
 module.exports = function(app, metadetalhes, oracledb) 
 {
-    app.set('views', __dirname + '../landingpage');
+    app.set('views', '/home/Meta/landingpage');
     
 // =====================================
 // HOME PAGE (with login links) ========
@@ -12,11 +12,11 @@ module.exports = function(app, metadetalhes, oracledb)
 // =====================================
 // show the login form  
 app.get('/', function(req, res) {
-    res.render(__dirname + 'index.html');
+    res.render('index.html');
 });
     
 app.get('/dashboard', function(req, res) {
-    res.render(__dirname + 'dashboard.html');
+    res.render('/home/Meta/dashboard/dashboard.html');
 });
 
 //app.get('/dashboard/charts/v00.00.01/employee/layer01/', function(req, res) {
