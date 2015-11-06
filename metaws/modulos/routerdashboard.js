@@ -1,7 +1,7 @@
 //routerdashboard.js
 module.exports = function(app, metadetalhes, oracledb) 
 {
-    app.set('views', '../landingpage');
+    app.set('views', __dirname + '../landingpage');
     
 // =====================================
 // HOME PAGE (with login links) ========
