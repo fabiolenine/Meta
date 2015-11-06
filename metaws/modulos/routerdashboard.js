@@ -1,5 +1,5 @@
 //routesir.js
-module.exports = function(app, MetaDetalhes) 
+module.exports = function(app, metadetalhes, oracledb) 
 {
     app.set('views', '../dashboard');
     
@@ -12,7 +12,7 @@ module.exports = function(app, MetaDetalhes)
 // =====================================
 // show the login form  
     app.get('/', function(req, res) {
-        res.render('index.ejs', {   //isAuthenticated: false,
+        res.render('../landingpage/index.ejs', {   //isAuthenticated: false,
                                     message: req.flash('loginMessage') }); // load the index.ejs file
     });
     
@@ -31,11 +31,11 @@ app.get('/relationshiptables', function(req, res) {
     });
 });
 
-app.get('/dashboard/charts/v00.00.01/employee/layer01/', function(req, res) {
-      MetaDetalhes.listar(req.body, function(success){
-        res.send(success);
-      });
-});
+//app.get('/dashboard/charts/v00.00.01/employee/layer01/', function(req, res) {
+//      metadetalhes.listar(req.body, function(success){
+//        res.send(success);
+//      });
+//});
     
 
 app.get('/ping', function(req,res){

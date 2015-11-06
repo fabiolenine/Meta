@@ -44,13 +44,13 @@ oracledb.getConnection(dbconfig,function(err, connection) {
 
 http.createServer(app).listen(80);
 
-var MetaDetalhes  = require('./modulos/MetaDetalhes.js')(oracle);
+var metadetalhes  = require('./modulos/metadetalhes.js')(oracle);
 
 // set up ejs for templating
 app.set('view engine','ejs');
 
 // routes
-require('./modulos/routerdashboard.js')(app, MetaDetalhes);      // load our routes and pass in our app and fully configured passport
+require('./modulos/routerdashboard.js')(app, metadetalhes, oracledb);      // load our routes and pass in our app and fully configured passport
 
 
 //
