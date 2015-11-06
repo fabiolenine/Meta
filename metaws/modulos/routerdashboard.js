@@ -12,12 +12,12 @@ module.exports = function(app, metadetalhes, oracledb)
 // =====================================
 // show the login form  
     app.get('/', function(req, res) {
-        res.render('../landingpage/index.ejs', {   //isAuthenticated: false,
+        res.render('../landingpage/index.html', {   //isAuthenticated: false,
                                     message: req.flash('loginMessage') }); // load the index.ejs file
     });
     
 app.get('/dashboard', function(req, res) {
-    res.render('dashboard.ejs',{
+    res.render('dashboard.html',{
         user :  req.user          
     });
 });
@@ -26,7 +26,7 @@ app.get('/dashboard', function(req, res) {
 // Layers SECTION ======================
 // =====================================    
 app.get('/relationshiptables', function(req, res) {    
-    res.render('relationshiptables.ejs', {
+    res.render('relationshiptables.html', {
       user : req.user // get the user out of session and pass to template
     });
 });
