@@ -22,8 +22,13 @@ var https               = require('https');
 var express             = require('express');
 var MemoryStore         = require('connect').session;
 var oracledb            = require('oracledb');
+var vhost		= require('vhost');
 
 var app                 = express();
+var appDashBoard		= express();
+
+app.use(vhost('dashboard.10.1.2.187',appDashBoard));
+
 //acrescentar aqui o controle da pagina Landing
 
 // =================================================================================
@@ -48,9 +53,15 @@ var metadetalhes  = require('./modulos/metadetalhes.js')(oracledb);
 
 // set up ejs for templating
 app.set('view engine','ejs');
+app.use(express.static('../landingpage'));
+
+appDashBoard.set('view engine','ejs');
+appDashBoard.use(express.static('../dashboard'));
+
 
 // routes
-require('./modulos/routerdashboard.js')(app, metadetalhes, oracledb);      // load our routes and pass in our app and fully configured passport
+require('./modulos/routermeta.js')(app,metadetalhes);					// load our routes the landingpage
+require('./modulos/routerdashboard.js')(appDashBoard, dashboarddetalhes, oracledb);     // load our routes the dashboard
 
 
 //
