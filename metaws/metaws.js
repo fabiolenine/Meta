@@ -25,9 +25,9 @@ var oracledb            = require('oracledb');
 var vhost		= require('vhost');
 
 var app                 = express();
-var appDashBoard		= express();
+//var appDashBoard	= express();
 
-app.use(vhost('dashboard.10.1.2.187',appDashBoard));
+//app.use(vhost('dashboard.tjce.jus.br',appDashBoard));
 
 //acrescentar aqui o controle da pagina Landing
 
@@ -54,14 +54,12 @@ var metadetalhes  = require('./modulos/metadetalhes.js')(oracledb);
 // set up ejs for templating
 app.set('view engine','ejs');
 app.use(express.static('../landingpage'));
-
-appDashBoard.set('view engine','ejs');
-appDashBoard.use(express.static('../dashboard'));
+app.use(express.static('../dashboard'));
 
 
 // routes
 require('./modulos/routermeta.js')(app,metadetalhes);					// load our routes the landingpage
-require('./modulos/routerdashboard.js')(appDashBoard, dashboarddetalhes, oracledb);     // load our routes the dashboard
+//require('./modulos/routerdashboard.js')(appDashBoard, dashboarddetalhes, oracledb);     // load our routes the dashboard
 
 
 //
