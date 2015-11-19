@@ -1,0 +1,8 @@
+preproducao =
+        (DESCRIPTION =
+                (ADDRESS = (PROTOCOL = TCP)(HOST = TJBDP01)(PORT = 1521)
+                )
+        (CONNECT_DATA =
+                (SID = ADMPP)
+       )
+)
