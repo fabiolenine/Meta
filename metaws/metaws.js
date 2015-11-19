@@ -25,42 +25,22 @@ var oracledb            = require('oracledb');
 var vhost		= require('vhost');
 
 var app                 = express();
-//var appDashBoard	= express();
-
-//app.use(vhost('dashboard.tjce.jus.br',appDashBoard));
 
 //acrescentar aqui o controle da pagina Landing
 
-// =================================================================================
-// Begin - Connection to the Oracle database
-// =================================================================================
-var dbconfig            = require('./config/dbConfig.js');
-oracledb.getConnection(dbconfig,function(err, connection) {
-    if (err) {
-        console.error(err.message);
-        return;
-    }
-    console.log("connected database");
-    });
-// =================================================================================
-// End - Connection to the Oracle database
-// =================================================================================
-
-
 http.createServer(app).listen(80);
 
-var metadetalhes  = require('./modulos/metadetalhes.js')(oracledb);
+var metadetalhes  = require('./modulos/metadetalhes.js')();
 
 // set up ejs for templating
 app.set('view engine','ejs');
 app.use(express.static('../landingpage'));
 app.use(express.static('../dashboard'));
 
-
+// =================================================================================
 // routes
-require('./modulos/routermeta.js')(app,metadetalhes);					// load our routes the landingpage
-//require('./modulos/routerdashboard.js')(appDashBoard, dashboarddetalhes, oracledb);     // load our routes the dashboard
-
+// ================================================================================
+require('./modulos/routermeta.js')(app, metadetalhes);			  		  // load our routes the landingpage
 
 //
 // Express route to handle errors

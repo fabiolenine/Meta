@@ -7,7 +7,7 @@ angular.module('servidorService',[])
 .factory('Controllers', function($http) {
     return {
         list              : function() {
-            return $http.get('/dashboard/charts/v00.00.01/employee/layer01/');
+            return $http.get('http://10.1.2.187:3000/listatotal/');
         },
         total             : function() {
             return $http.get('dashboard/totalizing/v00.00.01/employee/layer01/');

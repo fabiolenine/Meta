@@ -3,16 +3,19 @@ module.exports = function(app, metadetalhes)
 {
 
 app.get('/', function(req, res) {
-//	app.use(express.static('../landingpage'));
-	app.set('views','../landingpage/');
+	app.set('views','../landingpage');
 	res.render('index.ejs');
 });
 
 app.get('/dashboard', function(req, res) {
-	app.set('views','../dashboard/');
-//	app.use(express.static('../dashboard'));
+	app.set('views','../dashboard');
 	res.render('dashboard.ejs');
 });
+
+//------------------------------------------------
+//-- Serviços do Dashboard -----------------------
+//------------------------------------------------
+
 
 app.get('/ping', function(req, res) {
 	res.status(200).send("pong!");
