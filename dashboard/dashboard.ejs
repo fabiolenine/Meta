@@ -413,11 +413,11 @@
                                         </thead>
                                         <tbody>
                                             <tr ng-repeat="registro in datajson.servidor | filter:filtro | orderBy:predicate:reverse">
-                                                <td>{{registro.Mes}}</td>
-                                                <td>{{registro.Total}}</td>
-                                                <td>{{registro.PrimeiroGrau}}</td>
-                                                <td>{{registro.SegundoGrau}}</td>
-                                                <td>{{registro.AreaJudiciaria}}</td>
+                                                <td>{{registro.PERIODO}}</td>
+                                                <td>{{registro.PRIMEIRO_GRAU + registro.SEGUNDO_GRAU}}</td>
+                                                <td>{{registro.PRIMEIRO_GRAU}}</td>
+                                                <td>{{registro.SEGUNDO_GRAU}}</td>
+                                                <td>{{registro.PRIMEIRO_GRAU_JUDICIARIO + registro.SEGUNDO_GRAU_JUDICIARIO}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

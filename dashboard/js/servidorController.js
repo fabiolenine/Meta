@@ -5,14 +5,16 @@ angular.module('servidorController',[])
     //inject the Event service factory into our controller
     .controller('chartCTRL', function($scope, $http, Controllers) {
 
-	Controllers.list().success(function(data) {
+Controllers.list().success(function(data) {
 		$scope.datasvg = '[[ "Mes", "Total", "Primeiro Grau", "Segundo Grau", "Área Judiciária"]';
             	for(var i in data) {
-                	$scope.datasvg += ',["' + data[i].PERIODO + '",' + (data[i].PRIMEIRO_GRAU+data[i].SEGUNDO_GRAU) + ',' + data[i].PRIMEIRO_GRAU + ',' + data[i].SEGUNDO_GRAU + ',' + (data[i].PRIMEIRO_GRAU+data[i].SEGUNDO_GRAU) + ']';
+                	$scope.datasvg += ',["' + data[i].PERIODO + '",' + (data[i].PRIMEIRO_GRAU+data[i].SEGUNDO_GRAU) + ',' + data[i].PRIMEIRO_GRAU + ',' + data[i].SEGUNDO_GRAU + ',' + (data[i].PRIMEIRO_GRAU_JUDICIARIO + data[i].SEGUNDO_GRAU_JUDICIARIO) + ']';
             	};
             	$scope.datasvg += ']';
 
-	console.log($scope.datasvg);
+	$scope.datajson = {"servidor": data};
+
+	console.log($scope.datajson);
 
         var datac = google.visualization.arrayToDataTable($.parseJSON($scope.datasvg));
 
@@ -30,8 +32,7 @@ angular.module('servidorController',[])
 
         var chart = new google.visualization.ComboChart(document.getElementById('combo_chart'));
 
-        chart.draw(datac, options);
-            
+        chart.draw(datac, options);            
 });
     
 });
